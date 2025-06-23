@@ -4,7 +4,7 @@ import (
 	"embed"
 	"os"
 
-	"github.com/agoodmu/demo/handler"
+	"github.com/agoodmu/demo/handlers"
 	"github.com/gin-gonic/gin"
 )
 
@@ -25,7 +25,7 @@ func main() {
 
 	{
 		v1 := router.Group("/v1")
-		v1.GET("/echo", handler.Echo(&templatesFolder, "templates/demo_http_headers.tmpl"))
+		v1.GET("/echo", handlers.Echo(&templatesFolder, "templates/demo_http_headers.tmpl"))
 	}
 
 	router.StaticFile("/css/main.css", "css/main.css")
