@@ -4,15 +4,12 @@ import (
 	"embed"
 	"os"
 
-	app "github.com/agoodmu/demo/v1"
+	"github.com/agoodmu/demo/handler"
 	"github.com/gin-gonic/gin"
 )
 
 //go:embed templates
 var templatesFolder embed.FS
-
-//go:embed css
-var cssFiles embed.FS
 
 var listen_port = "80"
 
@@ -28,7 +25,7 @@ func main() {
 
 	{
 		v1 := router.Group("/v1")
-		v1.GET("/echo", app.Echo(&templatesFolder, "templates/demo_http_headers.tmpl"))
+		v1.GET("/echo", handler.Echo(&templatesFolder, "templates/demo_http_headers.tmpl"))
 	}
 
 	router.StaticFile("/css/main.css", "css/main.css")
