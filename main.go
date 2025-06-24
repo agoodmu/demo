@@ -11,7 +11,7 @@ import (
 //go:embed templates
 var templatesFolder embed.FS
 
-var listen_port = "80"
+var listen_port = "8080"
 
 func init() {
 	port, exists := os.LookupEnv("Port")
@@ -23,8 +23,8 @@ func init() {
 func main() {
 	router := gin.Default()
 
+	v := router.Group("/")
 	{
-		v := router.Group("/")
 		v.GET("/echo", handlers.Echo(&templatesFolder, "templates/demo_http_headers.tmpl"))
 		v.StaticFile("/css/main.css", "css/main.css")
 		router.GET("/ping", func(c *gin.Context) {
@@ -34,8 +34,8 @@ func main() {
 		})
 	}
 
+	v1 := router.Group("/v1")
 	{
-		v1 := router.Group("/v1")
 		v1.GET("/echo", handlers.Echo(&templatesFolder, "templates/demo_http_headers.tmpl"))
 	}
 	router.Run("0.0.0.0:" + listen_port)

@@ -4,10 +4,10 @@
   <link rel="stylesheet" href="/css/main.css">
 </head>
 <body>
-<table>
+<table class="table-showheaders">
     <tr>
-        <th>Name</th>
-        <th>Value</th>
+        <th class="table-showheaders-th1">Name</th>
+        <th class="table-showheaders-th2">Value</th>
     </tr>
     {{ range $key, $value := . }}
         <tr>

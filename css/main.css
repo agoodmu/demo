@@ -2,6 +2,25 @@ table, th, td {
   border: 1px solid white;
   border-collapse: collapse;
 }
+
 th, td {
   background-color: #96D4D4;
+}
+
+.table-showheaders {
+  table-layout: fixed;
+  width: 100%;
+  border: 1px solid white;
+  border-collapse: collapse;
+  word-wrap: break-word;
+}
+
+.table-showheaders-th1 {
+  width: 20%;
+  background-color: lightblue;
+}
+
+.table-showheaders-th2 {
+  width: 80%;
+  background-color: lightblue;
 }
