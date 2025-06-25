@@ -25,7 +25,7 @@ func main() {
 
 	v := router.Group("/")
 	{
-		v.GET("/echo", handlers.Echo(&templatesFolder, "templates/demo_http_headers.tmpl"))
+		v.GET("/echo", handlers.Echo(&templatesFolder, "templates/demo_request.tmpl"))
 		v.StaticFile("/css/main.css", "css/main.css")
 		router.GET("/ping", func(c *gin.Context) {
 			c.JSON(200, gin.H{
@@ -36,7 +36,7 @@ func main() {
 
 	v1 := router.Group("/v1")
 	{
-		v1.GET("/echo", handlers.Echo(&templatesFolder, "templates/demo_http_headers.tmpl"))
+		v1.GET("/echo", handlers.Echo(&templatesFolder, "templates/demo_request.tmpl"))
 	}
 	router.Run("0.0.0.0:" + listen_port)
 }
