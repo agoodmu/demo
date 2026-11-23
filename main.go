@@ -11,7 +11,7 @@ import (
 //go:embed templates
 var templatesFolder embed.FS
 
-var listen_port = "80"
+var listen_port = "8080"
 
 func init() {
 	port, exists := os.LookupEnv("Port")
